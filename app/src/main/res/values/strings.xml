@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Rezeptebuch Bärbel</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Bärbel´s Rezeptebuch</string>
+    <string name="nav_header_subtitle">renebergsch@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="menu_übersicht">Kategorien</string>
+    <string name="menu_rezepte">Rezepte</string>
+    <string name="menu_hauptgerichte">Hauptgerichte</string>
+    <string name="menu_salate">Salate</string>
+    <string name="menu_suppen">Suppen</string>
+    <string name="menu_backen">Backen</string>
+    <string name="menu_kuchen">Kuchen</string>
+    <string name="menu_dips">Dips</string>
+    <string name="menu_grillen">Grillen</string>
+    <string name="menu_nachtisch">Nachtisch</string>
+    <string name="menu_brotaufstrich">Brotaufstrich</string>
+    <string name="menu_vorspeise">Vorspeise</string>
+    <string name="menu_übersicht_überschrift">Bärbel´s Kategorien</string>
+    <string name="menu_rezepte_überschrift">Bärbel´s Rezepte</string>
+    <string name="menu_zutaten_überschrift">Bärbel´s Zutaten</string>
+    <string name="überschrift_zuaten">Zutaten:</string>
+    <string name="überschrift_anweisungen">Anweisungen:</string>
+    <string name="überschrift_sonstiges">Sonstiges:</string>
+</resources>

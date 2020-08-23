@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="Kategorien">
+      <item>Hauptgerichte</item>
+      <item>Salate</item>
+      <item>Suppen</item>
+      <item>Backen</item>
+      <item>Kuchen</item>7
+      <item>Dips</item>
+      <item>Grillen</item>
+      <item>Nachtisch</item>
+      <item>Brotaufstrich</item>
+      <item>Vorspeise</item>
+  </string-array>
+
+
+
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_übersicht">
+
+    <fragment
+        android:id="@+id/nav_übersicht"
+        android:name="com.example.rezeptebuchbaerbel.ui.UebersichtFragment"
+        tools:layout="@layout/fragment_uebersicht" />
+    <fragment
+        android:id="@+id/nav_hauptgerichte"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_salate"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_suppen"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_backen"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_kuchen"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_dips"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_grillen"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_nachtisch"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_brotaufstrich"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_vorspeise"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+    <fragment
+        android:id="@+id/nav_smoothie"
+        android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+        tools:layout="@layout/fragment_rezepte" />
+</navigation>
