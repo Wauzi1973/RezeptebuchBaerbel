@@ -11,10 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.Rezepteingabe;
 import com.example.rezeptebuchbaerbel.RoomÜbersicht;
-
 import java.util.ArrayList;
 
 public class EinzelheitenFragment extends Fragment {
@@ -28,6 +28,7 @@ public class EinzelheitenFragment extends Fragment {
     String zutatenText;
     String anweisungText;
     String sonstigesText;
+    Resources resources;
 
     ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
     Bundle bundle;
@@ -41,7 +42,7 @@ public class EinzelheitenFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_zutaten, container, false);
         activity = this.getActivity();
         bundle = this.getArguments();
-        Resources resources = getResources();
+        resources = getResources();
         überschrift = view.findViewById(R.id.listview_ueberschrift);
 
         übersichtPosition = bundle.getInt("übersichtPosition",0);
@@ -57,7 +58,6 @@ public class EinzelheitenFragment extends Fragment {
         anweisungText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).verarbeitung;
         sonstigesText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).sonstiges;
 
-
         zutaten.setText(zutatenText);
         anweisungen.setText(anweisungText);
         sonstiges.setText(sonstigesText);
@@ -65,12 +65,12 @@ public class EinzelheitenFragment extends Fragment {
         anweisungen.setMovementMethod(new ScrollingMovementMethod());
         sonstiges.setMovementMethod(new ScrollingMovementMethod());
 
-
         überschriftText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).nameRezepte;
         überschrift.setText(überschriftText);
+        überschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarZutaten,null));
         activity.setTitle("Zutaten");
+
+        ((MainActivity) getActivity()).setToolbar(view.getId());
         return view;
     }
-
-
 }

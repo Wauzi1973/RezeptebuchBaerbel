@@ -1,6 +1,6 @@
 package com.example.rezeptebuchbaerbel;
 
-import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -25,15 +26,18 @@ public class MainActivity extends AppCompatActivity  {
     NavigationView navigationView;
     DrawerLayout drawer;
     View view;
+    Resources resources;
     ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
     ListViewAdapterRoomÜbersicht listViewAdapterRoomÜbersicht;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         view = findViewById(R.id.fragment_übersicht);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -56,6 +60,18 @@ public class MainActivity extends AppCompatActivity  {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -89,6 +105,25 @@ public class MainActivity extends AppCompatActivity  {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Nullable
+    public void setToolbar(int fragmentId){
+
+        resources = getResources();
+        switch (fragmentId){
+            case R.id.fragment_übersicht:
+                toolbar.setBackgroundColor(resources.getColor(R.color.colorToolbarÜbersicht,null));
+                return;
+            case R.id.fragment_rezepte:
+                toolbar.setBackgroundColor(resources.getColor(R.color.colorToolbarRezepte,null));
+                return;
+            case R.id.fragment_zutaten:
+                toolbar.setBackgroundColor(resources.getColor(R.color.colorToolbarZutaten,null));
+                return;
+            default:
+                return;
         }
     }
 }

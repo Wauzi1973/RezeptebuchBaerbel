@@ -29,4 +29,8 @@
     <string name="überschrift_zuaten">Zutaten:</string>
     <string name="überschrift_anweisungen">Anweisungen:</string>
     <string name="überschrift_sonstiges">Sonstiges:</string>
+
+    <string name="fragment_übersicht">Übersicht</string>
+    <string name="fragment_rezepte">Rezepte</string>
+    <string name="fragment_zutaten">Zutaten</string>
 </resources>

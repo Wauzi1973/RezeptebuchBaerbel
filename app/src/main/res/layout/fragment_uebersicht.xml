@@ -6,7 +6,8 @@
     android:id="@+id/fragment_übersicht"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.UebersichtFragment">
+    tools:context=".ui.UebersichtFragment"
+    android:tag="@string/fragment_übersicht">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -15,7 +16,6 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#D8F8D4"
             app:contentInsetLeft="0dp"
             app:contentInsetStart="0dp">
 

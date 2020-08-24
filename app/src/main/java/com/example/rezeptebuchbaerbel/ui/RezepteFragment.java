@@ -1,7 +1,7 @@
 package com.example.rezeptebuchbaerbel.ui;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +14,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.example.rezeptebuchbaerbel.ListViewAdapterRoomRezepte;
+import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.Rezepteingabe;
 import com.example.rezeptebuchbaerbel.RoomÜbersicht;
-
 import java.util.ArrayList;
 
 public class RezepteFragment extends Fragment {
@@ -28,6 +28,7 @@ TextView überschrift;
 String überschriftText;
 Bundle bundle;
 int übersichtPosition;
+Resources resources;
 
     ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
     ListViewAdapterRoomRezepte listViewAdapterRoomRezepte;
@@ -39,6 +40,7 @@ int übersichtPosition;
         listView = view.findViewById(R.id.listview_rezepte);
         activity = this.getActivity();
         überschrift = view.findViewById(R.id.listview_ueberschrift);
+        resources = getResources();
 
         bundle = this.getArguments();
         übersichtPosition = bundle.getInt("übersichtPosition",0);
@@ -58,7 +60,10 @@ int übersichtPosition;
 
         überschriftText = listÜbersicht.get(übersichtPosition).nameÜbersicht;
         überschrift.setText(überschriftText);
-activity.setTitle("Rezepte");
+        überschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarRezepte,null));
+        activity.setTitle("Rezepte");
+
+        ((MainActivity) getActivity()).setToolbar(view.getId());
   return view;
     }
 

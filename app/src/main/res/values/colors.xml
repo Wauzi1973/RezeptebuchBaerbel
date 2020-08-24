@@ -3,4 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorToolbarÜbersicht">#DDD298</color>
+    <color name="colorToolbarRezepte">#98EFA4</color>
+    <color name="colorToolbarZutaten">#B4E4F3</color>
 </resources>

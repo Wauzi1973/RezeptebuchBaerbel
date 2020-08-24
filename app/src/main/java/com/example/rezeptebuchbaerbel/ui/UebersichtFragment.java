@@ -14,11 +14,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.example.rezeptebuchbaerbel.ListViewAdapterRoomÜbersicht;
+import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.Rezepteingabe;
 import com.example.rezeptebuchbaerbel.RoomÜbersicht;
-
 import java.util.ArrayList;
+
 
 public class  UebersichtFragment extends Fragment {
     View view;
@@ -26,6 +27,7 @@ public class  UebersichtFragment extends Fragment {
     TextView überschrift;
     String überschriftText;
     ListView listView;
+    Resources resources;
 
     ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
     ListViewAdapterRoomÜbersicht listViewAdapterRoomÜbersicht;
@@ -39,7 +41,7 @@ public class  UebersichtFragment extends Fragment {
         activity = this.getActivity();
         überschrift = view.findViewById(R.id.listview_ueberschrift);
 
-        Resources resources = getResources();
+        resources = getResources();
 
         listÜbersicht = new Rezepteingabe().RezepteingabevonHand();
 
@@ -55,6 +57,10 @@ public class  UebersichtFragment extends Fragment {
 
         überschriftText = resources.getString(R.string.menu_übersicht_überschrift);
         überschrift.setText(überschriftText);
+        überschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarÜbersicht,null));
+
+        ((MainActivity) getActivity()).setToolbar(view.getId());
+
     return  view;
     }
 
@@ -67,6 +73,7 @@ public class  UebersichtFragment extends Fragment {
     public void onStart() {
         super.onStart();
 activity.setTitle("Kategorien");
+
     }
 
     @Override
