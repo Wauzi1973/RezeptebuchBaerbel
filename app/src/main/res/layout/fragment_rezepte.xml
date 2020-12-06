@@ -6,7 +6,7 @@
     android:id="@+id/fragment_rezepte"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
+    tools:context=".ui.RezepteFragment"
     android:tag="@string/fragment_rezepte">
 
     <com.google.android.material.appbar.AppBarLayout

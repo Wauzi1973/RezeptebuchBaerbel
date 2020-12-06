@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_uebersicht"
         android:orderInCategory="100"
         android:title="@string/menu_übersicht"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/menu_about_überschrift"
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_lizenzen"
+        android:orderInCategory="100"
+        android:title="@string/menu_lizenzen_überschrift"
+        app:showAsAction="never"
+        android:visible="false"/>
 </menu>

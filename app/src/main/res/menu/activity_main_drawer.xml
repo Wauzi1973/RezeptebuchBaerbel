@@ -10,4 +10,15 @@
             android:title="@string/menu_übersicht">
         </item>
     </item>
+
+    <item android:title="@string/menu_about">
+        <menu>
+            <item android:id="@+id/nav_about"
+                android:icon="@drawable/ic_action_impressum"
+                android:title="@string/menu_about_überschrift" />
+            <item android:id="@+id/nav_lizenzen"
+                android:icon="@drawable/ic_action_lizenzen"
+                android:title="@string/menu_lizenzen_überschrift" />
+        </menu>
+    </item>
 </menu>

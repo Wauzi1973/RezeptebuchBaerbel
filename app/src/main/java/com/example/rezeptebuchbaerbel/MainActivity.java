@@ -18,7 +18,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -27,8 +26,6 @@ public class MainActivity extends AppCompatActivity  {
     DrawerLayout drawer;
     View view;
     Resources resources;
-    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
-    ListViewAdapterRoomÜbersicht listViewAdapterRoomÜbersicht;
     Toolbar toolbar;
 
     @Override
@@ -37,7 +34,6 @@ public class MainActivity extends AppCompatActivity  {
         view = findViewById(R.id.fragment_übersicht);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -54,7 +50,7 @@ public class MainActivity extends AppCompatActivity  {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-               R.id.nav_übersicht)
+               R.id.nav_übersicht,R.id.nav_about,R.id.nav_lizenzen)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -124,6 +120,24 @@ public class MainActivity extends AppCompatActivity  {
                 return;
             default:
                 return;
+        }
+    }
+
+    @Nullable
+    public void setToolbar(int fragmentId,String schütze){
+
+        resources = getResources();
+        switch (fragmentId){
+
+            case R.id.fragment_about:
+                toolbar.setBackgroundColor(resources.getColor(R.color.colorToolbarImpressum,null));
+                toolbar.setTitle(schütze);
+                return;
+            case R.id.fragment_lizenzen:
+                toolbar.setBackgroundColor(resources.getColor(R.color.colorToolbarLizenzen,null));
+                toolbar.setTitle(schütze);
+                return;
+            default:
         }
     }
 }

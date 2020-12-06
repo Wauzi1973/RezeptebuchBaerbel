@@ -21,6 +21,11 @@ public class Kuchen {
         listRezepteSonstiges = "Ca. 2 Stunden kalt stellen. Vor dem servieren mit Kakao bestäuben. \n";
         listRezepteKuchen.add(listRezepteKuchen.size(),new RoomRezepte("Edle Buttercremetorte",listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
 
+        listRezepteZutaten = "6 Eier (M) \n 400g + 2EL Zucker \n Salz \n 250ml neutrales Öl \n abgeriebene Schale und Saft von 1 Bio-Zitrone \n 350g Mehl \n 1/2 Päckchen Backpulver \n 250g Mascarpone \n 250g Magerquark \n 2 Päckchen Sahnefestiger \n 500g Schlagsahne \n 1 Dose Aprikosenhälften (425ml) \n je ca. 200g grüne, kernlose Trauben, Heidelbeeren und Himbeeren \n 2 Bananen \n 1 Päckchen klarer Tortenguss \n ";
+        listRezepteAnweisungen = "1.) \n Eier, 300g Zucker und 1 Prise Salz dick-schaumig schlagen. \n Öl, Zitronenschale und -saft, bis auf 1EL, kurz unterrühren. Mehl und \n Backpulver mischen und unterheben. Teig in ein gefettetes, mit Mehl  \n ausgestäubtes tiefes Backblech (ca. 24x40cm) geben und glatt streichen. \n Im vorgeheizten Backofen ( E-Herd: 180°C , Umluft: 160°C )  \n 15-20 min backen. \n Auskühlen lassen. \n 2.) \n Mascarpone und Quark glatt rühren. 100g Zucker und Sahnefestiger mischen, \n unterrühren. Sahne steif schlagen und unterheben. Creme auf dem \n Boden glatt streichen. Kalt stellen. \n 3.) \n Aprikosen abtropfen lassen, Saft dabei auffangen. Aprikosen kleiner \n schneiden. Trauben waschen, abzupfen, halbieren. Beeren verlesen und \n waschen. Bananen schälen, in Scheiben schneiden und mit übrigem \n 1 EL Zitronensaft beträufeln. Kuchen mit einem Messerrücken in \n ca. 15 Quadrate (ca. 8x8cm) einkerben.  \n Jedes Quadrat mit je einer Obstsorte belegen. \n 4.) \n Gusspulver mit 2 EL Zucker in einem kleinen Topf verrühren.  \n Aprikosensaft mit Wasser auf 250ml Flüssigkeit auffüllen und mit dem \n Gusspulver verrühren. Unter Rühren kurz aufkochen. Guss sofort mit \n einem Esslöffel auf dem Obst verteilen. \n Fest werden lassen. \n ";
+        listRezepteSonstiges = "Zubereitungszeit: ca. 45min ohne Wartezeit \n Backzeit: 15-20min \n ";
+        listRezepteKuchen.add(listRezepteKuchen.size(),new RoomRezepte("Patchwork Kuchen",listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
 /*
 
         listRezepteZutaten = "";

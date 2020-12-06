@@ -16,6 +16,11 @@ public class Brotaufstrich {
         listRezepteSonstiges = "Zubereitungszeit ca. 10 Minuten.";
         listRezepteBrotaufstrich.add(listRezepteBrotaufstrich.size(),new RoomRezepte("Brot mit Obazda, Radieschen und roten Zwiebeln",listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
 
+        listRezepteZutaten = "1 Packung Toffifee (125g) \n 40g Butter \n 40g flüssige Sahne \n ";
+        listRezepteAnweisungen = "Toffifee in den Mixtopf geben und 10sec. / Stufe 10 \n zerkleinern. Butter und Sahne zugeben und 5min / 50°C / Stufe 2 \n verrühren. Im Kühlschrank wird der Auftrich etwas fester. \n ";
+        listRezepteSonstiges = "Es können auch Bounty oder Snickers verwendet werden. \n ";
+        listRezepteBrotaufstrich.add(listRezepteBrotaufstrich.size(),new RoomRezepte("Toffitella",listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
 
 /*
 
