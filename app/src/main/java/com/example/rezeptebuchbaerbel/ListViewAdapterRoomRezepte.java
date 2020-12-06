@@ -11,16 +11,17 @@ import java.util.ArrayList;
 
 public class ListViewAdapterRoomRezepte extends BaseAdapter {
 
-
+    Context context;
     ArrayList<RoomÜbersicht> listReszepte;
     LayoutInflater inflater;
     int übersichtPosition;
 
-    public ListViewAdapterRoomRezepte(int übersichtPosition,Context applicationContext, ArrayList<RoomÜbersicht> listReszepte){
+    public ListViewAdapterRoomRezepte(int übersichtPosition,Context context, ArrayList<RoomÜbersicht> listReszepte){
         super();
 
+        this.context = context;
         this.listReszepte = listReszepte;
-        inflater = (LayoutInflater.from(applicationContext));
+        inflater = (LayoutInflater.from(context));
         this.übersichtPosition = übersichtPosition;
     }
 
