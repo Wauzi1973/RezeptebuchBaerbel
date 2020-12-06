@@ -19,12 +19,12 @@ public class ListViewAdapterRoomÜbersicht extends BaseAdapter{
     String txtViewText;
 
 
-    public ListViewAdapterRoomÜbersicht(Context applicationContext, ArrayList<RoomÜbersicht> listÜbersicht){
+    public ListViewAdapterRoomÜbersicht(Context context, ArrayList<RoomÜbersicht> listÜbersicht){
 
         super();
         this.context = context;
         this.listÜbersicht = listÜbersicht;
-        inflater = (LayoutInflater.from(applicationContext));
+        inflater = (LayoutInflater.from(context));
     }
 
 //    @Override
@@ -52,6 +52,7 @@ public class ListViewAdapterRoomÜbersicht extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
+        holder = new ViewHolder();
         convertView = inflater.inflate(R.layout.listview_uebersicht_item,null);
 
         if(position % 2 == 0 ){
@@ -64,7 +65,7 @@ public class ListViewAdapterRoomÜbersicht extends BaseAdapter{
 
         txtViewText = String.valueOf(anzahlRezepte)+" Rezepte";
 
-        holder = new ViewHolder();
+
         holder.bild = convertView.findViewById(R.id.uebersichtsBild);
         holder.txtViewÜbersicht = convertView.findViewById(R.id.textViewKategorie);
         holder.txtViewZusatz = convertView.findViewById(R.id.textViewZusatz);
