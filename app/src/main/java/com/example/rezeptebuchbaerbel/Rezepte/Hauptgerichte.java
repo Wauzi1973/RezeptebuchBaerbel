@@ -16,6 +16,13 @@ public class Hauptgerichte {
 
         listRezepteHauptgerichte.clear();
 
+
+        listRezepteZutaten = "800g Kartoffeln \n 3 Zwiebeln \n 60g Butter \n 3 EL Mehl \n 1 L Gemüsebrühe \n 250g MILRAM frische Schlagsahne \n 200g MILRAM Frühlingsquark 7-Kräuter \n Salz, Pfeffer \n 800g Schweinefilet \n 2 EL Öl \n 300g Kischtomaten \n 150g geriebenen Käse \n 1 Bund Schnittlauch \n ";
+        listRezepteAnweisungen = "1.) \n Kartoffeln waschen und in Wasser ca. 20 Minuten kochen.  \n Inzwischen Zwiebeln schälen und würfeln. \n Butter in einem Topf erhitzen.  \n Zwiebeln darin andünsten. \n 2.) \n Mehl zufühen und anschwitzen. Mit Brühe und Sahne ablöschen,  \n unter Rühren aufkochen und ca. 3 Minuten köcheln lassen. \n MILRAM Frühlingquark einrühren. \n Soße mit Salz und Pfeffer würzen. \n 3.) \n Kartoffeln abgießen, abschrecken, abkühlen lassen, pellen und in \n Scheiben schneiden. Fleisch trocken tupfen und in 8 Medaillons \n schneiden. Öl in einer Pfanne erhitzen. Medaillons darin unter Wenden \n ca. 5 Minuten anbraten. \n Mit Salz und Pfeffer würzen. \n 4.) \n Tomaten waschen und halbieren. Eine Auflaufform (ca. 20x30cm) fetten. \n Kartoffeln und Tomaten in die Form geben. Medaillons in die Mitte \n setzen. Soße darüber verteilen. \n Käse drüber streuen. \n 5.) \n Im vorgeheizten Backofen (E-Herd: 200°C / Umluft: 175°C) ca. 15 Minuten \n backen. Dann im heißen Ofen auf Grillstufe 3 ca. 5 Minuten überbacken. \n 6.) \n Schnittlauch waschen, trocken schütteln und in Röllchen schneiden. \n Schweinefilet-Kartoffel-Auflauf aus dem Ofen nehmen, \n mit Schnittlauchröllchen bestreuen und anrichten. \n ";
+        listRezepteSonstiges = "";
+        listRezepteHauptgerichte.add(listRezepteHauptgerichte.size(),new RoomRezepte("Saftiger Schweinefilet-Kartoffel-Auflauf",listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
+
         listRezepteZutaten = "1 kg Festkochende Kartoffeln \n Salz \n 2 Stück Zwiebeln \n 80 g Schinkenspeck gewürfelt \n 1 EL Keimöl \n 600 ml Kaltes Wasser \n 1 Beutel Fix für Hackfleisch Käse-Suppe mit Lauch \n 200 g Sahne Schmelzkäse \n Frisch gemahlener weißer Pfeffer \n 2 EL Schnittlauchröllchen";
         listRezepteAnweisungen = "1.) \n Kartoffeln mit Schale in Salzwasser etwa 20 Minuten garen, kalt abspülen, \n pellen und in Scheiben schneiden. \n 2.) \n Zwiebeln abziehen, würfeln und mit gewürfelten Schinkenspeck im heißen Keimöl dünsten. \n Kaltes Wasser zugießen, Beutelinhalt Fix für Hackfleisch Käse Suppe einrühren, \n unter Rühren aufkochen, Sahne Schmelzkäse zugeben und darin schmelzen lassen. \n 3.) \n Kartoffelscheiben in die Sauce geben, darin heiß werden lassen, \n mit Pfeffer abschmecken und mit Schnittlauchröllchen unterrühren.";
         listRezepteSonstiges = "";
