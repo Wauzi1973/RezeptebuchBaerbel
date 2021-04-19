@@ -130,7 +130,6 @@ activity.setTitle("Kategorien");
         rezepteDAO = databaseClass.createRezepteDAO();
         zutatenDAO = databaseClass.createZutatenDAO();
 
-        kategorienList = kategorienDAO.getKategoriens();
         kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
 /*
 Damit wäre eine Kategorie mit Rezepte und Zutaten gespeichert.
@@ -152,6 +151,10 @@ So wird updates einzelner Daten gemacht.
             String sonstiges = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getSonstiges();
 
             Toast.makeText(context, ""+kategorie, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, ""+rezept, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, ""+zutaten, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, ""+anweisung, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, ""+sonstiges, Toast.LENGTH_SHORT).show();
         }
     }
 }
