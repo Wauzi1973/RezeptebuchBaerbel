@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -28,9 +27,6 @@ import com.example.rezeptebuchbaerbel.dao.ZutatenDAO;
 import com.example.rezeptebuchbaerbel.database.DatabaseClass;
 import com.example.rezeptebuchbaerbel.embedded.KategorieWithRezepte;
 import com.example.rezeptebuchbaerbel.entity.Kategorien;
-import com.example.rezeptebuchbaerbel.entity.Rezepte;
-import com.example.rezeptebuchbaerbel.entity.Zutaten;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,6 +127,7 @@ activity.setTitle("Kategorien");
         zutatenDAO = databaseClass.createZutatenDAO();
 
         kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
+
 /*
 Damit wäre eine Kategorie mit Rezepte und Zutaten gespeichert.
         kategorienDAO.insert(new Kategorien(R.drawable.icon_hauptgerichte,"Hauptgericht"));
@@ -142,11 +139,12 @@ So wird updates einzelner Daten gemacht.
         kategorienDAO.updateKategorie(kategorieWithRezepteList.get(0).kategorien.getId(),"Neuer Name auf Index 0");
         rezepteDAO.updateRezeptname(kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).rezepte.getId(),"neuer Rezeptname in Kategorieindex 0 und Rezeptindex 0");
 */
+
         if (kategorieWithRezepteList.size() != 0) {
             // Das würde dann so im ListViewAdapter in die ListView ausgegeben.
-            String kategorie = kategorieWithRezepteList.get(0).kategorien.getKategorie(); // get(0) Index für Kategorie
-            String rezept = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).rezepte.getRezeptName();// get(0) Index für Kategorie ;get(0) Index Rezepte
-            String zutaten = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getZutaten();// get(0) Index für Kategorie ;get(0) Index Rezepte ;get(0) immer =0!!!
+            String kategorie = kategorieWithRezepteList.get(0).kategorien.getKategorie(); // .get(0) Index für Kategorie
+            String rezept = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).rezepte.getRezeptName();// .get(0) Index für Kategorie .get(0) Index Rezepte
+            String zutaten = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getZutaten();// .get(0) Index für Kategorie .get(0) Index Rezepte .get(0) immer =0!!!
             String anweisung = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getAnweisung();
             String sonstiges = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getSonstiges();
 
