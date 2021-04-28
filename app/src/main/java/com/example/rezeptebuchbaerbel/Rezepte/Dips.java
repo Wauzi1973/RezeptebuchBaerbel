@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Dips {
     ArrayList<RoomRezepte> listRezepteDips = new ArrayList<RoomRezepte>();
 
+    String listRezepteName;
     String listRezepteZutaten;
     String listRezepteAnweisungen;
     String listRezepteSonstiges;
