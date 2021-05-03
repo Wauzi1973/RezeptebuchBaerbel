@@ -11,6 +11,16 @@
         </item>
     </item>
 
+    <item android:title="@string/share">
+        <menu>
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_action_impressum"
+                android:title="@string/share_sicherung" />
+        </menu>
+    </item>
+
     <item android:title="@string/menu_about">
         <menu>
             <item android:id="@+id/nav_about"

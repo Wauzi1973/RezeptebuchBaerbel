@@ -1,43 +1,71 @@
 package com.example.rezeptebuchbaerbel;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.widget.Toast;
+import com.example.rezeptebuchbaerbel.embedded.KategorieWithRezepte;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class PrefManager {
 
     Context context;
+    String myData;
     int mode = Context.MODE_PRIVATE;
 
-    PrefManager(Context context){
+    public PrefManager(Context context){
         this.context = context;
     }
 
-    public void saveListDetails(String ARRAY_LIST, String SHARED_PREFS, ArrayList<RoomÜbersicht> list) {
-
-        SharedPreferences sharedPreferences = context.getSharedPreferences( SHARED_PREFS,mode );
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    public void saveListDatabaseExtern(File myExternalFile, ArrayList<KategorieWithRezepte> list) {
         Gson gson = new Gson();
         String json = gson.toJson(list);
-        editor.putString(ARRAY_LIST,json);
-        editor.apply();
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(myExternalFile);
+            fos.write(json.getBytes());
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(context,"FileNotFound  "+e.getMessage(),Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(context,"IOException   "+e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public  ArrayList<RoomÜbersicht> getList(String ARRAY_LIST, String SHARED_PREFS) {
 
-        ArrayList<RoomÜbersicht> list;
+    public ArrayList<KategorieWithRezepte> getListDatabaseExtern(File myExternalFile) {
+        try {
+            FileInputStream fis = new FileInputStream(myExternalFile);
+            DataInputStream in = new DataInputStream(fis);
+            BufferedReader br =
+                    new BufferedReader(new InputStreamReader(in));
+            myData = br.readLine();
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(context,"IOException   "+e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
 
-        SharedPreferences sharedPreferences = context.getSharedPreferences( SHARED_PREFS,mode );
+        ArrayList<KategorieWithRezepte> list;
         Gson gson = new Gson();
-        String json = sharedPreferences.getString( ARRAY_LIST,null );
-        Type type = new TypeToken<ArrayList<RoomÜbersicht>>(){}.getType();
-        list = gson.fromJson( json,type );
+        Type type = new TypeToken<ArrayList<KategorieWithRezepte>>(){}.getType();
+        list = gson.fromJson( myData,type );
 
         if (list==null){
-            list = new ArrayList<RoomÜbersicht>(  );
+            list = new ArrayList<>();
         }
         return list;
     }

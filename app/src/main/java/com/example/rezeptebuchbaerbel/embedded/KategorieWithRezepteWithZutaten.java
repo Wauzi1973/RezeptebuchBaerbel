@@ -13,7 +13,7 @@ public class KategorieWithRezepteWithZutaten {
 
     @Relation(
             parentColumn = "Id",
-            entityColumn = "zutatenID",
+            entityColumn = "rezepteID",
             entity = Zutaten.class)
     public List<Zutaten> zutatens;
 }

@@ -2,6 +2,7 @@ package com.example.rezeptebuchbaerbel;
 
 import com.example.rezeptebuchbaerbel.Rezepte.Backen;
 import com.example.rezeptebuchbaerbel.Rezepte.Brotaufstrich;
+import com.example.rezeptebuchbaerbel.Rezepte.CocktailRezepte;
 import com.example.rezeptebuchbaerbel.Rezepte.Dips;
 import com.example.rezeptebuchbaerbel.Rezepte.Grillen;
 import com.example.rezeptebuchbaerbel.Rezepte.Hauptgerichte;
@@ -15,19 +16,20 @@ import java.util.ArrayList;
 
 public class Rezepteingabe {
 
-    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
+    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<>();
 
-    ArrayList<RoomRezepte> listRezepteHauptgerichte = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteSalate = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteSuppen = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteBacken = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteKuchen = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteDips = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteGrillen = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteNachtisch = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteBrotaufstrich = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteVorspeise = new ArrayList<RoomRezepte>();
-    ArrayList<RoomRezepte> listRezepteSmoothie =new ArrayList<RoomRezepte>();
+    ArrayList<RoomRezepte> listRezepteHauptgerichte = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteSalate = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteSuppen = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteBacken = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteKuchen = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteDips = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteGrillen = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteNachtisch = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteBrotaufstrich = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteVorspeise = new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteSmoothie =new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteCocktail =new ArrayList<>();
 
 
     public ArrayList<RoomÜbersicht> RezepteingabevonHand(){
@@ -45,6 +47,7 @@ public class Rezepteingabe {
         listRezepteBrotaufstrich = new Brotaufstrich().Brotaufstrich();
         listRezepteVorspeise = new Vorspeise().Vorspeise();
         listRezepteSmoothie = new Smoothie().Smoothie();
+        listRezepteCocktail = new CocktailRezepte().Cocktail();
 
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_hauptgerichte,"Hauptgerichte",listRezepteHauptgerichte));
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_salate,"Salate",listRezepteSalate));
@@ -57,6 +60,8 @@ public class Rezepteingabe {
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_brotaufstrich,"Brotaufstrich",listRezepteBrotaufstrich));
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_vorspeise,"Vorspeise",listRezepteVorspeise));
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_smoothies,"Smoothie´s",listRezepteSmoothie));
+            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_smoothies,"Cocktail´s",listRezepteCocktail));
+
 return  listÜbersicht;
     }
 }

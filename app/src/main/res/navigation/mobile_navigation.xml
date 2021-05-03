@@ -10,6 +10,16 @@
         android:name="com.example.rezeptebuchbaerbel.ui.UebersichtFragment"
         tools:layout="@layout/fragment_uebersicht" />
     <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.rezeptebuchbaerbel.ui.ShareFragment"
+        android:label="@string/share"
+        tools:layout="@layout/fragment_share">
+        <action
+            android:id="@+id/next_share"
+            app:destination="@+id/flow_step_two">
+        </action>
+    </fragment>
+    <fragment
         android:id="@+id/nav_hauptgerichte"
         android:name="com.example.rezeptebuchbaerbel.ui.RezepteFragment"
         tools:layout="@layout/fragment_rezepte" />

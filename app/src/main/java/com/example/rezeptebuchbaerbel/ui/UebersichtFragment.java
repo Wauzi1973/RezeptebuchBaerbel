@@ -71,7 +71,6 @@ public class  UebersichtFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                   onClickFragment(position);
             }
         });
@@ -118,9 +117,7 @@ activity.setTitle("Kategorien");
     }
 
     private void loadRoom(){
-        databaseClass = Room.databaseBuilder(context,DatabaseClass.class,"DatabaseRezepte")
-                .allowMainThreadQueries()
-                .build();
+        databaseClass = MainActivity.databaseClassMainActivity(context);
 
         kategorienDAO = databaseClass.createKategorienDAO();
         rezepteDAO = databaseClass.createRezepteDAO();

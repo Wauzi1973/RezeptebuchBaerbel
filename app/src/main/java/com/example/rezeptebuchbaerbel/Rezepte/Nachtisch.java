@@ -24,6 +24,13 @@ public class Nachtisch {
         listRezepteSonstiges = "";
         listRezepteNachtisch.add(listRezepteNachtisch.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
 
+        listRezepteName = "Nachtisch Biscuit";
+        listRezepteZutaten = "500gr. Mascapone\n200ml Sahne\n1 Päckchen Vanillezucker\n1 Becher Joghurt Natur\n1 Eimer Rote Grütze\n1 Paket Löffelbiscuit";
+        listRezepteAnweisungen = "Den Löffelbiscuit in eine Form als unterste Schicht legen.\nDie Mascapone, Sahne, Vanillezucker und den Joghurt vermischen und über den Löffelbiscuit geben.\n" +
+                "Als nächstes verteilt man darauf den Eimer mit Roter Grütze und stellt das ganze für mindestens 1 Stunde in den Kühlschrank.\n(Am besten einen Tag vorher zubereiten, damit der Löffelbiscuit aufweischt)\n\nGuten Appetit";
+        listRezepteSonstiges = "";
+        listRezepteNachtisch.add(listRezepteNachtisch.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
 /*
         listRezepteName = "";
         listRezepteZutaten = "";
@@ -32,8 +39,6 @@ public class Nachtisch {
         listRezepteNachtisch.add(listRezepteNachtisch.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
 
 */
-
-
         return listRezepteNachtisch;
     }
 }

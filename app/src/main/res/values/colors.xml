@@ -8,4 +8,35 @@
     <color name="colorToolbarZutaten">#B4E4F3</color>
     <color name="colorToolbarImpressum">#5C79F8</color>
     <color name="colorToolbarLizenzen">#EFB259</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlue">#651FFF</color>
+    <color name="colorOrange">#FFC400</color>
+    <color name="colorYellow">#FFEA00</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGreen">#82F100</color>
+
+    <color name="colorToolbarStart">#B6F3C7</color>
+
+    <color name="cursorAccent">#EFB259</color>
+    <color name="controlNormal">#EFB259</color>
+    <color name="controlActivated">#EFB259</color>
+
+    <color name="colorFeldfarbe">#FFFFFF</color>
+    <color name="colorRahmenfarbe">#AFEAC0</color>
+
+    <color name="colorSamstagfarbe">#E1F2FA</color>
+    <color name="colorSonntagfarbe">#A1DBF4</color>
+    <color name="colorFeiertagfarbe">#F184A9</color>
+
+    <color name="sampleDark">#1B5E20</color>
+    <color name="sampleLight">#388E3C</color>
+    <color name="sampleLighter">#4CAF50</color>
+
+    <color name="dialogAccent">#795548</color>
+
+    <color name="colorGreenBackground">#00f000</color>
+    <color name="colorGrayBackground">#c7c7c5</color>
+
+    <color name="colorBackground">#EEEAEA</color>
 </resources>

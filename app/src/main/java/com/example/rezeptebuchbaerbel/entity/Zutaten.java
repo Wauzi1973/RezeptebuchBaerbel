@@ -17,14 +17,14 @@ public class Zutaten {
 
     @ForeignKey(entity = Rezepte.class,
     parentColumns = {"Id"},
-    childColumns = {"zutatenID"},
+    childColumns = {"rezepteID"},
     onDelete = ForeignKey.CASCADE)
-    public long zutatenID;
+    public long rezepteID;
 
     public Zutaten(){}
 
-    public Zutaten(long zutatenID, String zutaten, String anweisung, String sonstiges){
-        this.zutatenID = zutatenID;
+    public Zutaten(long rezepteID, String zutaten, String anweisung, String sonstiges){
+        this.rezepteID = rezepteID;
         this.zutaten = zutaten;
         this.anweisung = anweisung;
         this.sonstiges = sonstiges;
@@ -62,11 +62,11 @@ public class Zutaten {
         this.sonstiges = sonstiges;
     }
 
-    public long getZutatenID() {
-        return zutatenID;
+    public long getRezepteID() {
+        return rezepteID;
     }
 
-    public void setZutatenID(long zutatenID) {
-        this.zutatenID = zutatenID;
+    public void setRezepteID(long rezepteID) {
+        this.rezepteID = rezepteID;
     }
 }

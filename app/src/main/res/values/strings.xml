@@ -40,6 +40,18 @@
     <string name="fragment_about">Impressum</string>
     <string name="fragment_lizenzen">Lizenzen</string>
 
+    <string name="share_Rezepte">Rezepte speichern oder laden</string>
+
+    <string name="share_SD">SD Karte</string>
+    <string name="share_Handy">Handyspeicher</string>
+    <string name="share_GoogleDrive">Google Drive</string>
+    <string name="share_sicherung">Sicherung</string>
+
+    <string name="save">speichern</string>
+    <string name="cancel">abbrechen</string>
+    <string name="share">Share</string>
+    <string name="holen">laden</string>
+
     <string name="about">
 Angaben gemäß Paragraph 5 TMG:\n\n
 René Bergsch\n
@@ -238,4 +250,6 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
    See the License for the specific language governing permissions and\n
    limitations under the License.\n\n
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

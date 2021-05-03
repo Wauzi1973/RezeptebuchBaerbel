@@ -299,6 +299,29 @@ public class Hauptgerichte {
         listRezepteSonstiges = "Zubereitungszeit: 20min \n Kochzeit: 75min \n Gesamtzeit: 95min \n ";
         listRezepteHauptgerichte.add(listRezepteHauptgerichte.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
 
+        listRezepteName = "Russentopf";
+        listRezepteZutaten = "500gr. Hackfleisch\n500gr. Nudeln\n1/2 Becher Schmand\n1 Tube Tomatenmark\n1 Esslöffel Senf\n1 Brühe Würfel\n 1 Zwiebel";
+        listRezepteAnweisungen = "Die Zwiebel schälen, kleinschneiden und mit dem Hackfleisch zusammen anbraten.\nBrüheWürfel in kochendem Wasser auflösen und mit Tomatenmark, Senf und Schmand verühren.\nSoße über das angebratene Hackfleisch geben und kurz erhitzen.\n" +
+                "Nudeln Kochen und nach abschütten in eine große Schüssel geben.\nFertige Soße über die Nudeln und alles gut vermischen.\nGuten Appetit";
+        listRezepteSonstiges = "";
+        listRezepteHauptgerichte.add(listRezepteHauptgerichte.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
+        listRezepteName = "Kaese Lauch Suppe";
+        listRezepteZutaten = "500gr. Hackfleisch\n3 Stangen Lauch\n250gr. Schmelzkäse\n1Becher Creme Fraiche\n3 Würfel Gemüsebrühe\n700ml Wasser\nSalz und Pfeffer";
+        listRezepteAnweisungen = "Das Hackfleisch etwas würzen und in der Pfanne mit ein bisschen Öl anbraten.\nDen Lauch putzen, in Ringe schneiden und kurz mit anbraten.\n" +
+                "Brühewürfel in etwas Wasser auflösen und mit dem restlichen Wasser, Hackfleisch und Lauch in einen Topf geben und 10 Minuten köcheln lassen.\nSchmelzkäse einrühren und kurz weiter köcheln lassen.\n" +
+                "Ggf. nochmal etwas nachwürzen, CremeFraiche unter rühren, FERTIG.\nDazu kann man noch ein paar Brötchen oder Baguette aufbacken.\nGuten Appetit";
+        listRezepteSonstiges = "";
+        listRezepteHauptgerichte.add(listRezepteHauptgerichte.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
+        listRezepteName = "Nudelauflauf";
+        listRezepteZutaten = "500gr. Hackfleisch\n500gr. Nudeln\n2x Knorr Tomato Algusto\n2x Sahne\n2 Würfel Gemüsebrühe\n500ml Wasser\n1 Stück Käse Mittelalt oder fertig geriebener Käse";
+        listRezepteAnweisungen = "Den Backofen auf 200°C vorheizen.\nDas Hackfleisch etwas würzen und in der Pfanne mit ein bisschen Öl anbraten.\nNudeln, Hackfleisch, Al Gusto und die Sahne in den ThermoChef geben.\nDie Brühewürfel in 500ml kochendem Wasser auflösen lasse und dazu geben.\n" +
+                "Alles gut umrühren.\nGgf. noch Wasser hinzugeben, damit die Nudeln komplett mit Wasser bedeckt sind.\nDen Käse reiben und großzügig darauf verteilen.\nDanach den Deckel auf den Turbo Chef und ab damit in den Backofen.\nGarzeit: 45 Minuten mit Deckel und dann noch 15 Minuten ohne Deckel, damit der Käse braun wird.\n" +
+                "\nGuten Appetit";
+        listRezepteSonstiges = "";
+        listRezepteHauptgerichte.add(listRezepteHauptgerichte.size(),new RoomRezepte(listRezepteName,listRezepteZutaten,listRezepteAnweisungen,listRezepteSonstiges));
+
 /*
         listRezepteName = "";
         listRezepteZutaten = "";
