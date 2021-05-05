@@ -1,5 +1,6 @@
-package com.example.rezeptebuchbaerbel;
+package com.example.rezeptebuchbaerbel.roomAlt;
 
+import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.Rezepte.Backen;
 import com.example.rezeptebuchbaerbel.Rezepte.Brotaufstrich;
 import com.example.rezeptebuchbaerbel.Rezepte.CocktailRezepte;

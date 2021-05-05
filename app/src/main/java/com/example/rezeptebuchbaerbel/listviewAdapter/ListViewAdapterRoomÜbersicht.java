@@ -1,4 +1,4 @@
-package com.example.rezeptebuchbaerbel;
+package com.example.rezeptebuchbaerbel.listviewAdapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.rezeptebuchbaerbel.R;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+
 import java.util.ArrayList;
 
 public class ListViewAdapterRoomÜbersicht extends BaseAdapter{

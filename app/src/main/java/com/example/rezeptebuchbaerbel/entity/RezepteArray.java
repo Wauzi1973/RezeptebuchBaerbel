@@ -5,28 +5,26 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+
 @Entity
-public class Zutaten {
+public class RezepteArray {
     @PrimaryKey(autoGenerate = true)
     public long Id;
 
     @ColumnInfo
-    public int bild;
+    public String rezeptName;
+    public int rezeptBild;
     public String zutaten;
     public String anweisung;
     public String sonstiges;
 
-    @ForeignKey(entity = Rezepte.class,
-    parentColumns = {"Id"},
-    childColumns = {"rezepteID"},
-    onDelete = ForeignKey.CASCADE)
-    public long rezepteID;
 
-    public Zutaten(){}
+    public RezepteArray(){
+    }
 
-    public Zutaten(long rezepteID, int bild, String zutaten, String anweisung, String sonstiges){
-        this.rezepteID = rezepteID;
-        this.bild = bild;
+    public RezepteArray(String rezeptName, int rezeptBild, String zutaten, String anweisung, String sonstiges){
+        this.rezeptName = rezeptName;
+        this.rezeptBild = rezeptBild;
         this.zutaten = zutaten;
         this.anweisung = anweisung;
         this.sonstiges = sonstiges;
@@ -40,12 +38,20 @@ public class Zutaten {
         Id = id;
     }
 
-    public int getBild() {
-        return bild;
+    public String getRezeptName() {
+        return rezeptName;
     }
 
-    public void setBild(int bild) {
-        this.bild = bild;
+    public void setRezeptName(String rezeptName) {
+        this.rezeptName = rezeptName;
+    }
+
+    public int getRezeptBild() {
+        return rezeptBild;
+    }
+
+    public void setRezeptBild(int rezeptBild) {
+        this.rezeptBild = rezeptBild;
     }
 
     public String getZutaten() {
@@ -70,13 +76,5 @@ public class Zutaten {
 
     public void setSonstiges(String sonstiges) {
         this.sonstiges = sonstiges;
-    }
-
-    public long getRezepteID() {
-        return rezepteID;
-    }
-
-    public void setRezepteID(long rezepteID) {
-        this.rezepteID = rezepteID;
     }
 }

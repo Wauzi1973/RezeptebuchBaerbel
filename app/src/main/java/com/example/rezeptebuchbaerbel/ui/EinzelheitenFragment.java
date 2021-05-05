@@ -1,6 +1,7 @@
 package com.example.rezeptebuchbaerbel.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -13,21 +14,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
-import com.example.rezeptebuchbaerbel.Rezepteingabe;
-import com.example.rezeptebuchbaerbel.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.roomAlt.Rezepteingabe;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.dao.KategorienDAO;
+import com.example.rezeptebuchbaerbel.database.DatabaseClass;
+import com.example.rezeptebuchbaerbel.embedded.KategorieWithRezepte;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class EinzelheitenFragment extends Fragment {
     View view;
     Activity activity;
-    TextView überschrift;
-    TextView zutaten;
-    TextView anweisungen;
-    TextView sonstiges;
-    String überschriftText;
-    String zutatenText;
-    String anweisungText;
-    String sonstigesText;
+    Context context;
+    TextView überschrift, zutaten, anweisungen, sonstiges;
+    String überschriftText, zutatenText, anweisungText, sonstigesText;
     Resources resources;
 
     ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
@@ -36,11 +37,19 @@ public class EinzelheitenFragment extends Fragment {
     int übersichtPosition;
     int rezeptPosition;
 
+    DatabaseClass databaseClass;
+    List<KategorieWithRezepte> kategorieWithRezepteList;
+    ArrayList<KategorieWithRezepte> kategorieWithRezepteArrayList = new ArrayList<>();
+
+    KategorienDAO kategorienDAO;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_zutaten, container, false);
         activity = this.getActivity();
+        context = this.getContext();
         bundle = this.getArguments();
         resources = getResources();
         überschrift = view.findViewById(R.id.listview_ueberschrift);
@@ -72,5 +81,13 @@ public class EinzelheitenFragment extends Fragment {
 
         ((MainActivity) getActivity()).setToolbar(view.getId());
         return view;
+    }
+
+    public void loadRoom(){
+        databaseClass = MainActivity.databaseClassMainActivity(context);
+        kategorienDAO = databaseClass.createKategorienDAO();
+        kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
+
+        kategorieWithRezepteArrayList = new ArrayList<>(kategorieWithRezepteList);
     }
 }
