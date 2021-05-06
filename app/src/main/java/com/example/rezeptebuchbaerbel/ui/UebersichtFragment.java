@@ -157,7 +157,7 @@ activity.setTitle("Kategorien");
         kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_brotaufstrich,"Brotaufstrich"));
         kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_vorspeise,"Vorspeise"));
         kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_smoothies,"Smoothie´s"));
-        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_smoothies,"Cocktail´s"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_cocktails,"Cocktail´s"));
 
         kategorienDAO.insertAllKategorien(kategoriens);
         kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
