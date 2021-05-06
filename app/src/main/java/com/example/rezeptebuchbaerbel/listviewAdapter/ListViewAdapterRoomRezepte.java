@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rezeptebuchbaerbel.R;
@@ -45,6 +46,7 @@ public class ListViewAdapterRoomRezepte extends BaseAdapter {
     }
     private class ViewHolder{
         TextView txtViewÜbersicht;
+        ImageView imageView;
     }
 
     //    @Override
@@ -61,10 +63,12 @@ public class ListViewAdapterRoomRezepte extends BaseAdapter {
 
         holder = new ListViewAdapterRoomRezepte.ViewHolder();
         holder.txtViewÜbersicht = convertView.findViewById(R.id.textViewRezepte);
+        holder.imageView = convertView.findViewById(R.id.imgRezept);
 
         convertView.setTag(holder);
 
         holder.txtViewÜbersicht.setText(listReszepte.get(übersichtPosition).roomRezeptes.get(position).nameRezepte);
+        holder.imageView.setImageResource(listReszepte.get(übersichtPosition).getBildname());
 
         return convertView;
     }

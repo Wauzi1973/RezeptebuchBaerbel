@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="130dp"
     android:maxHeight="200dp"
     android:minHeight="100dp"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/imgRezept"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/unten"
+        app:layout_constraintEnd_toStartOf="@+id/bildbreite"
+        app:layout_constraintStart_toStartOf="@+id/linkerrand"
+        app:layout_constraintTop_toTopOf="@+id/oben"
+        app:srcCompat="@drawable/icon_cocktails" />
+
     <TextView
         android:id="@+id/textViewRezepte"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:autoSizeMaxTextSize="36dp"
+        android:autoSizeMinTextSize="30dp"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/delius_swash_caps"
         android:gravity="center_vertical"
         android:text="@string/menu_rezepte"
         android:textSize="36sp"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="30dp"
-        android:autoSizeMaxTextSize="36dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/unten"
-        app:layout_constraintLeft_toLeftOf="@id/linkerrand"
-        app:layout_constraintRight_toRightOf="@id/rechterrand"
-        app:layout_constraintTop_toTopOf="@id/oben" />
+        app:layout_constraintEnd_toStartOf="@+id/rechterrand"
+        app:layout_constraintStart_toStartOf="@+id/bildbreite"
+        app:layout_constraintTop_toTopOf="@+id/oben" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/linkerrand"
@@ -30,6 +41,13 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bildbreite"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/rechterrand"

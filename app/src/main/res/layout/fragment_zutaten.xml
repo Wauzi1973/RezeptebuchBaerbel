@@ -65,7 +65,6 @@
             android:id="@+id/txtZutaten"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:scrollbars="vertical"
@@ -102,8 +101,8 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:autoSizeMaxTextSize="30sp"
             android:autoSizeMinTextSize="20sp"
             android:gravity="center_vertical"
@@ -111,20 +110,22 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/txtAnweisung"
-            tools:layout_editor_absoluteX="10dp" />
+            app:layout_constraintEnd_toStartOf="@+id/zweiteBreite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAnweisung" />
 
         <TextView
             android:id="@+id/txtSonstiges"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_gravity="bottom"
             android:layout_marginTop="5dp"
             android:scrollbars="vertical"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView4"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintEnd_toStartOf="@+id/zweiteBreite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView4" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/höhe_Zutaten4"
@@ -153,6 +154,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/zweiteBreite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <ImageView
+            android:id="@+id/imgRezept"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/icon_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/zweiteBreite"
+            app:layout_constraintTop_toTopOf="@+id/höhe_Zutaten3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,12 +10,25 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
+import com.example.rezeptebuchbaerbel.Rezepte.BackenRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.BrotaufstrichRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.CocktailRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.DipsRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.GrillenRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.HauptgerichteRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.KuchenRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.NachtischRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.SalateRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.SmoothieRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.SuppenRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.VorspeiseRezepte;
+import com.example.rezeptebuchbaerbel.entity.Rezepte;
+import com.example.rezeptebuchbaerbel.entity.RezepteArray;
+import com.example.rezeptebuchbaerbel.entity.Zutaten;
 import com.example.rezeptebuchbaerbel.listviewAdapter.ListViewAdapterRoomÜbersicht;
 import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
@@ -44,10 +57,12 @@ public class  UebersichtFragment extends Fragment {
     ListViewAdapterRoomÜbersicht listViewAdapterRoomÜbersicht;
 
     DatabaseClass databaseClass;
-    ArrayList<Kategorien> kategorienArrayList;
-    List<Kategorien> kategorienList;
     List<KategorieWithRezepte> kategorieWithRezepteList;
-    Kategorien kategorien;
+    ArrayList<KategorieWithRezepte> kategorieWithRezepteArrayList;
+    ArrayList<Kategorien> kategoriens;
+    ArrayList<Rezepte> rezeptes;
+    ArrayList<Zutaten> zutatens;
+
     KategorienDAO kategorienDAO;
     RezepteDAO rezepteDAO;
     ZutatenDAO zutatenDAO;
@@ -65,7 +80,7 @@ public class  UebersichtFragment extends Fragment {
         resources = getResources();
 
         listÜbersicht = new Rezepteingabe().RezepteingabevonHand();
-
+loadRoom();
         listViewAdapterRoomÜbersicht = new ListViewAdapterRoomÜbersicht(getActivity(),listÜbersicht);
         listView.setAdapter(listViewAdapterRoomÜbersicht);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -122,35 +137,96 @@ activity.setTitle("Kategorien");
         kategorienDAO = databaseClass.createKategorienDAO();
         rezepteDAO = databaseClass.createRezepteDAO();
         zutatenDAO = databaseClass.createZutatenDAO();
-
         kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
 
-/*
-Damit wäre eine Kategorie mit Rezepte und Zutaten gespeichert.
-        kategorienDAO.insert(new Kategorien(R.drawable.icon_hauptgerichte,"Hauptgericht"));
-        rezepteDAO.insert(new Rezepte(kategorieWithRezepteList.get(0).kategorien.getId(),"Nudeln"));
-        zutatenDAO.insert(new Zutaten(kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).rezepte.getId(),"100g Butter\n","Machen","schön"));
-*/
-/*
-So wird updates einzelner Daten gemacht.
-        kategorienDAO.updateKategorie(kategorieWithRezepteList.get(0).kategorien.getId(),"Neuer Name auf Index 0");
-        rezepteDAO.updateRezeptname(kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).rezepte.getId(),"neuer Rezeptname in Kategorieindex 0 und Rezeptindex 0");
-*/
+        kategorienDAO.deleteAllKategorien();
+        kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
 
-        if (kategorieWithRezepteList.size() != 0) {
-            // Das würde dann so im ListViewAdapter in die ListView ausgegeben.
-            String kategorie = kategorieWithRezepteList.get(0).kategorien.getKategorie(); // .get(0) Index für Kategorie
-            String rezept = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).rezepte.getRezeptName();// .get(0) Index für Kategorie .get(0) Index Rezepte
-            String zutaten = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getZutaten();// .get(0) Index für Kategorie .get(0) Index Rezepte .get(0) immer =0!!!
-            String anweisung = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getAnweisung();
-            String sonstiges = kategorieWithRezepteList.get(0).kategorieWithRezeptes.get(0).zutatens.get(0).getSonstiges();
+        kategoriens = new ArrayList<>();
+        rezeptes = new ArrayList<>();
+        zutatens = new ArrayList<>();
 
-            Toast.makeText(context, ""+kategorie, Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, ""+rezept, Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, ""+zutaten, Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, ""+anweisung, Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, ""+sonstiges, Toast.LENGTH_SHORT).show();
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_hauptgerichte,"Hauptgerichte"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_salate,"Salate"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_suppe,"Suppen"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_backen,"Backen"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_kuchen,"Kuchen"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_dips,"Dips"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_grillen,"Grillen"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_nachtisch,"Nachtisch"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_brotaufstrich,"Brotaufstrich"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_vorspeise,"Vorspeise"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_smoothies,"Smoothie´s"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_smoothies,"Cocktail´s"));
+
+        kategorienDAO.insertAllKategorien(kategoriens);
+        kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
+
+        ArrayList<RezepteArray> rezepteArrayListHauptgerichte = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListSalate = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListSuppe = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListBacken = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListKuchen = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListDips = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListGrillen = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListNachtisch = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListBrotaufstrich = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListVorspeise = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListSmoothies = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListCocktails = new ArrayList<>();
+
+        rezepteArrayListHauptgerichte = new HauptgerichteRezepte().Hauptgerichte();
+        rezepteArrayListSalate = new SalateRezepte().Salate();
+        rezepteArrayListSuppe = new SuppenRezepte().Suppen();
+        rezepteArrayListBacken = new BackenRezepte().Backen();
+        rezepteArrayListKuchen = new KuchenRezepte().Kuchen();
+        rezepteArrayListDips = new DipsRezepte().Dips();
+        rezepteArrayListGrillen = new GrillenRezepte().Grillen();
+        rezepteArrayListNachtisch = new NachtischRezepte().Nachtisch();
+        rezepteArrayListBrotaufstrich = new BrotaufstrichRezepte().Brotaufstrich();
+        rezepteArrayListVorspeise = new VorspeiseRezepte().Vorspeise();
+        rezepteArrayListSmoothies = new SmoothieRezepte().Smoothie();
+        rezepteArrayListCocktails = new CocktailRezepte().Cocktail();
+
+        ArrayList<ArrayList<RezepteArray>> rezepte = new ArrayList<>();
+        rezepte.add(rezepte.size(),rezepteArrayListHauptgerichte);
+        rezepte.add(rezepte.size(),rezepteArrayListSalate);
+        rezepte.add(rezepte.size(),rezepteArrayListSuppe);
+        rezepte.add(rezepte.size(),rezepteArrayListBacken);
+        rezepte.add(rezepte.size(),rezepteArrayListKuchen);
+        rezepte.add(rezepte.size(),rezepteArrayListDips);
+        rezepte.add(rezepte.size(),rezepteArrayListGrillen);
+        rezepte.add(rezepte.size(),rezepteArrayListNachtisch);
+        rezepte.add(rezepte.size(),rezepteArrayListBrotaufstrich);
+        rezepte.add(rezepte.size(),rezepteArrayListVorspeise);
+        rezepte.add(rezepte.size(),rezepteArrayListSmoothies);
+        rezepte.add(rezepte.size(),rezepteArrayListCocktails);
+
+        int z = 0;
+        for (int x = 0 ; x < kategorieWithRezepteList.size() ; x++){
+            for (int y = 0 ; y < rezepte.get(x).size() ; y++){
+                rezeptes.add(z, new Rezepte(kategorieWithRezepteList.get(x).kategorien.getId(),rezepte.get(x).get(y).getRezeptName()));
+                z = z + 1;
+            }
         }
+        rezepteDAO.insertAllRezepte(rezeptes);
+        kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
+        z = 0;
+        for (int x = 0 ; x < kategorieWithRezepteList.size() ; x++){
+            for (int y = 0 ; y < kategorieWithRezepteList.get(x).kategorieWithRezeptes.size() ; y++){
+                int bild = rezepte.get(x).get(y).getRezeptBild();
+                String zutaten = rezepte.get(x).get(y).getZutaten();
+                String anweisung = rezepte.get(x).get(y).getAnweisung();
+                String sonstiges = rezepte.get(x).get(y).getSonstiges();
+
+                zutatens.add(z, new Zutaten(kategorieWithRezepteList.get(x).kategorieWithRezeptes.get(y).rezepte.getId(),bild,zutaten,anweisung,sonstiges));
+                z = z + 1;
+            }
+        }
+        zutatenDAO.insertAllZutaten(zutatens);
+        kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
+        kategorieWithRezepteArrayList = new ArrayList<>(kategorieWithRezepteList);
+
     }
 }
 

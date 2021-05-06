@@ -8,6 +8,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,15 +28,15 @@ public class EinzelheitenFragment extends Fragment {
     View view;
     Activity activity;
     Context context;
-    TextView überschrift, zutaten, anweisungen, sonstiges;
-    String überschriftText, zutatenText, anweisungText, sonstigesText;
+    TextView ueberschrift, zutaten, anweisungen, sonstiges;
+    ImageView imageView;
+    String ueberschriftText, zutatenText, anweisungText, sonstigesText;
     Resources resources;
 
-    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
+    ArrayList<RoomÜbersicht> listUebersicht = new ArrayList<RoomÜbersicht>();
     Bundle bundle;
 
-    int übersichtPosition;
-    int rezeptPosition;
+    int uebersichtPosition, rezeptPosition, intBild;
 
     DatabaseClass databaseClass;
     List<KategorieWithRezepte> kategorieWithRezepteList;
@@ -52,31 +53,34 @@ public class EinzelheitenFragment extends Fragment {
         context = this.getContext();
         bundle = this.getArguments();
         resources = getResources();
-        überschrift = view.findViewById(R.id.listview_ueberschrift);
+        ueberschrift = view.findViewById(R.id.listview_ueberschrift);
+        imageView = view.findViewById(R.id.imgRezept);
 
-        übersichtPosition = bundle.getInt("übersichtPosition",0);
+        uebersichtPosition = bundle.getInt("übersichtPosition",0);
         rezeptPosition = bundle.getInt("rezeptPosition",0);
 
-        listÜbersicht = new Rezepteingabe().RezepteingabevonHand();
+        listUebersicht = new Rezepteingabe().RezepteingabevonHand();
 
         zutaten = view.findViewById(R.id.txtZutaten);
         anweisungen = view.findViewById(R.id.txtAnweisung);
         sonstiges = view.findViewById(R.id.txtSonstiges);
 
-        zutatenText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).zutaten;
-        anweisungText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).verarbeitung;
-        sonstigesText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).sonstiges;
+        intBild = listUebersicht.get(uebersichtPosition).getBildname();
+        zutatenText = listUebersicht.get(uebersichtPosition).roomRezeptes.get(rezeptPosition).zutaten;
+        anweisungText = listUebersicht.get(uebersichtPosition).roomRezeptes.get(rezeptPosition).verarbeitung;
+        sonstigesText = listUebersicht.get(uebersichtPosition).roomRezeptes.get(rezeptPosition).sonstiges;
 
         zutaten.setText(zutatenText);
         anweisungen.setText(anweisungText);
         sonstiges.setText(sonstigesText);
+        imageView.setImageResource(intBild);
         zutaten.setMovementMethod(new ScrollingMovementMethod());
         anweisungen.setMovementMethod(new ScrollingMovementMethod());
         sonstiges.setMovementMethod(new ScrollingMovementMethod());
 
-        überschriftText = listÜbersicht.get(übersichtPosition).roomRezeptes.get(rezeptPosition).nameRezepte;
-        überschrift.setText(überschriftText);
-        überschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarZutaten,null));
+        ueberschriftText = listUebersicht.get(uebersichtPosition).roomRezeptes.get(rezeptPosition).nameRezepte;
+        ueberschrift.setText(ueberschriftText);
+        ueberschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarZutaten,null));
         activity.setTitle("Zutaten");
 
         ((MainActivity) getActivity()).setToolbar(view.getId());
@@ -89,5 +93,6 @@ public class EinzelheitenFragment extends Fragment {
         kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
 
         kategorieWithRezepteArrayList = new ArrayList<>(kategorieWithRezepteList);
+
     }
 }

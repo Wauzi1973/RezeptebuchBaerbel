@@ -11,6 +11,7 @@ import com.example.rezeptebuchbaerbel.embedded.KategorieWithRezepteWithZutaten;
 import com.example.rezeptebuchbaerbel.entity.Rezepte;
 import com.example.rezeptebuchbaerbel.entity.Zutaten;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -31,6 +32,9 @@ public interface RezepteDAO {
 
     @Query("Select * From rezepte")
     public List<KategorieWithRezepteWithZutaten> getKategorieWithRezepteWithZutatens();
+
+    @Insert
+    public void insertAllRezepte(ArrayList<Rezepte> liste);
 
     @Query("Update rezepte Set rezeptName=:rezeptName Where Id=:Id")
     public void updateRezeptname(long Id, String rezeptName);

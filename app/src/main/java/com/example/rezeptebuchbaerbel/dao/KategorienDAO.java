@@ -2,7 +2,9 @@ package com.example.rezeptebuchbaerbel.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
+import androidx.room.Entity;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
@@ -17,7 +19,7 @@ import java.util.List;
 public interface KategorienDAO {
 
     @Transaction
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     public long insert(Kategorien kategorien);
 
     @Update
@@ -32,8 +34,11 @@ public interface KategorienDAO {
     @Query("SELECT * FROM kategorien")
     public List<KategorieWithRezepte> getKategorieWithRezeptens();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertAllKategorien(ArrayList<Kategorien> liste);
+
+    @Query("Delete From kategorien")
+    public void deleteAllKategorien();
 
     @Query("Update kategorien Set kategorie=:kategorie Where Id=:Id")
     public void updateKategorie(long Id, String kategorie);

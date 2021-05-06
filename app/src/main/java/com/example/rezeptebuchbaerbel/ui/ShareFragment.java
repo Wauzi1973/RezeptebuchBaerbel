@@ -187,13 +187,17 @@ loadRoom();
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.rezepte_save_handy:
- //               new PrefManager(context).saveListDatabaseExtern(myExternalFileRezepteHandy,kategorieWithRezepteArrayList);
+                new PrefManager(context).saveListDatabaseExtern(myExternalFileRezepteHandy,kategorieWithRezepteArrayList);
+                updateView();
                 if(sdCard){
                     Toast.makeText(context,"Lohnabrechnungen auf SD Karte gespeichert",Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(context,"Lohnabrechnungen auf Handy gespeichert",Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case R.id.rezepte_get_handy:
+//                kategorieWithRezepteArrayList = new PrefManager(context).getListDatabaseExtern(myExternalFileRezepteHandy);
+                updateView();
         }
     }
 

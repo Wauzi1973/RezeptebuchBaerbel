@@ -3,6 +3,7 @@ package com.example.rezeptebuchbaerbel.roomAlt;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.Rezepte.Backen;
 import com.example.rezeptebuchbaerbel.Rezepte.Brotaufstrich;
+import com.example.rezeptebuchbaerbel.Rezepte.Cocktail;
 import com.example.rezeptebuchbaerbel.Rezepte.CocktailRezepte;
 import com.example.rezeptebuchbaerbel.Rezepte.Dips;
 import com.example.rezeptebuchbaerbel.Rezepte.Grillen;
@@ -48,7 +49,7 @@ public class Rezepteingabe {
         listRezepteBrotaufstrich = new Brotaufstrich().Brotaufstrich();
         listRezepteVorspeise = new Vorspeise().Vorspeise();
         listRezepteSmoothie = new Smoothie().Smoothie();
-        listRezepteCocktail = new CocktailRezepte().Cocktail();
+        listRezepteCocktail = new Cocktail().Cocktail();
 
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_hauptgerichte,"Hauptgerichte",listRezepteHauptgerichte));
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_salate,"Salate",listRezepteSalate));
@@ -61,7 +62,7 @@ public class Rezepteingabe {
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_brotaufstrich,"Brotaufstrich",listRezepteBrotaufstrich));
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_vorspeise,"Vorspeise",listRezepteVorspeise));
             listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_smoothies,"Smoothie´s",listRezepteSmoothie));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_smoothies,"Cocktail´s",listRezepteCocktail));
+            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_cocktails,"Cocktail´s",listRezepteCocktail));
 
 return  listÜbersicht;
     }

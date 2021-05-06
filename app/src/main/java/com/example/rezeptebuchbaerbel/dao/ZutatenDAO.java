@@ -8,6 +8,7 @@ import androidx.room.Transaction;
 import androidx.room.Update;
 import com.example.rezeptebuchbaerbel.entity.Zutaten;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -25,6 +26,9 @@ public interface ZutatenDAO {
 
     @Query("Select * From zutaten")
     public List<Zutaten> getZutatens();
+
+    @Insert
+    public void insertAllZutaten(ArrayList<Zutaten> liste);
 
     @Query("Update zutaten Set zutaten=:zutaten Where Id=:Id")
     public void updateZutaten(long Id, String zutaten);
