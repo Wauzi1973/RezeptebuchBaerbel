@@ -3,26 +3,26 @@ package com.example.rezeptebuchbaerbel.roomAlt;
 import java.util.ArrayList;
 
 
-public class RoomÜbersicht {
+public class RoomUebersicht {
 
     public int bildname;
-    public String nameÜbersicht;
+    public String nameUebersicht;
     public ArrayList<RoomRezepte> roomRezeptes;
 
 
 
-    public RoomÜbersicht(int bildName, String nameÜbersicht, ArrayList<RoomRezepte> roomRezeptes){
+    public RoomUebersicht(int bildName, String nameUebersicht, ArrayList<RoomRezepte> roomRezeptes){
         super();
         this.bildname = bildName;
-        this.nameÜbersicht = nameÜbersicht;
+        this.nameUebersicht = nameUebersicht;
         this.roomRezeptes = roomRezeptes;
     }
     public int getBildname() {
         return bildname;
     }
 
-    public String getNameÜbersicht() {
-        return nameÜbersicht;
+    public String getNameUebersicht() {
+        return nameUebersicht;
     }
 
     public ArrayList<RoomRezepte> getRoomRezeptes() {

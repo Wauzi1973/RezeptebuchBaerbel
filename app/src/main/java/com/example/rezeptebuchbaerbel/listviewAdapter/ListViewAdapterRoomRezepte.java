@@ -10,29 +10,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rezeptebuchbaerbel.R;
-import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomUebersicht;
 
 import java.util.ArrayList;
 
 public class ListViewAdapterRoomRezepte extends BaseAdapter {
 
     Context context;
-    ArrayList<RoomÜbersicht> listReszepte;
+    ArrayList<RoomUebersicht> listReszepte;
     LayoutInflater inflater;
-    int übersichtPosition;
+    int uebersichtPosition;
 
-    public ListViewAdapterRoomRezepte(int übersichtPosition,Context context, ArrayList<RoomÜbersicht> listReszepte){
+    public ListViewAdapterRoomRezepte(int uebersichtPosition,Context context, ArrayList<RoomUebersicht> listReszepte){
         super();
 
         this.context = context;
         this.listReszepte = listReszepte;
         inflater = (LayoutInflater.from(context));
-        this.übersichtPosition = übersichtPosition;
+        this.uebersichtPosition = uebersichtPosition;
     }
 
     //    @Override
     public int getCount() {
-        return listReszepte.get(übersichtPosition).roomRezeptes.size();
+        return listReszepte.get(uebersichtPosition).roomRezeptes.size();
     }
 
     //    @Override
@@ -67,8 +67,8 @@ public class ListViewAdapterRoomRezepte extends BaseAdapter {
 
         convertView.setTag(holder);
 
-        holder.txtViewÜbersicht.setText(listReszepte.get(übersichtPosition).roomRezeptes.get(position).nameRezepte);
-        holder.imageView.setImageResource(listReszepte.get(übersichtPosition).getBildname());
+        holder.txtViewÜbersicht.setText(listReszepte.get(uebersichtPosition).roomRezeptes.get(position).nameRezepte);
+        holder.imageView.setImageResource(listReszepte.get(uebersichtPosition).getBildname());
 
         return convertView;
     }

@@ -2,6 +2,7 @@ package com.example.rezeptebuchbaerbel.roomAlt;
 
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.Rezepte.Backen;
+import com.example.rezeptebuchbaerbel.Rezepte.Brot;
 import com.example.rezeptebuchbaerbel.Rezepte.Brotaufstrich;
 import com.example.rezeptebuchbaerbel.Rezepte.Cocktail;
 import com.example.rezeptebuchbaerbel.Rezepte.CocktailRezepte;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class Rezepteingabe {
 
-    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<>();
+    ArrayList<RoomUebersicht> listUebersicht = new ArrayList<>();
 
     ArrayList<RoomRezepte> listRezepteHauptgerichte = new ArrayList<>();
     ArrayList<RoomRezepte> listRezepteSalate = new ArrayList<>();
@@ -32,11 +33,12 @@ public class Rezepteingabe {
     ArrayList<RoomRezepte> listRezepteVorspeise = new ArrayList<>();
     ArrayList<RoomRezepte> listRezepteSmoothie =new ArrayList<>();
     ArrayList<RoomRezepte> listRezepteCocktail =new ArrayList<>();
+    ArrayList<RoomRezepte> listRezepteBrot =new ArrayList<>();
 
 
-    public ArrayList<RoomÜbersicht> RezepteingabevonHand(){
+    public ArrayList<RoomUebersicht> RezepteingabevonHand(){
 
-        listÜbersicht.clear();
+        listUebersicht.clear();
 
         listRezepteHauptgerichte = new Hauptgerichte().Hauptgerichte();
         listRezepteSalate = new Salate().Salate();
@@ -50,20 +52,22 @@ public class Rezepteingabe {
         listRezepteVorspeise = new Vorspeise().Vorspeise();
         listRezepteSmoothie = new Smoothie().Smoothie();
         listRezepteCocktail = new Cocktail().Cocktail();
+        listRezepteBrot = new Brot().Brot();
 
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_hauptgerichte,"Hauptgerichte",listRezepteHauptgerichte));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_salate,"Salate",listRezepteSalate));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_suppe,"Suppen",listRezepteSuppen));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_backen,"Backen",listRezepteBacken));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_kuchen,"Kuchen",listRezepteKuchen));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_dips,"Dips",listRezepteDips));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_grillen,"Grillen",listRezepteGrillen));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_nachtisch,"Nachtisch",listRezepteNachtisch));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_brotaufstrich,"Brotaufstrich",listRezepteBrotaufstrich));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_vorspeise,"Vorspeise",listRezepteVorspeise));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_smoothies,"Smoothie´s",listRezepteSmoothie));
-            listÜbersicht.add(listÜbersicht.size(),new RoomÜbersicht(R.drawable.icon_cocktails,"Cocktail´s",listRezepteCocktail));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_hauptgerichte,"Hauptgerichte",listRezepteHauptgerichte));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_salate,"Salate",listRezepteSalate));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_suppe,"Suppen",listRezepteSuppen));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_backen,"Backen",listRezepteBacken));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_kuchen,"Kuchen",listRezepteKuchen));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_dips,"Dips",listRezepteDips));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_grillen,"Grillen",listRezepteGrillen));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_nachtisch,"Nachtisch",listRezepteNachtisch));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_brotaufstrich,"Brotaufstrich",listRezepteBrotaufstrich));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_vorspeise,"Vorspeise",listRezepteVorspeise));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_smoothies,"Smoothie´s",listRezepteSmoothie));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_cocktails,"Cocktail´s",listRezepteCocktail));
+        listUebersicht.add(listUebersicht.size(),new RoomUebersicht(R.drawable.icon_backen,"Brot",listRezepteBrot));
 
-return  listÜbersicht;
+return  listUebersicht;
     }
 }

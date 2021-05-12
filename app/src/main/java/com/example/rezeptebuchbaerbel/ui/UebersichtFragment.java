@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.example.rezeptebuchbaerbel.Rezepte.BackenRezepte;
+import com.example.rezeptebuchbaerbel.Rezepte.BrotRezepte;
 import com.example.rezeptebuchbaerbel.Rezepte.BrotaufstrichRezepte;
 import com.example.rezeptebuchbaerbel.Rezepte.CocktailRezepte;
 import com.example.rezeptebuchbaerbel.Rezepte.DipsRezepte;
@@ -29,11 +30,11 @@ import com.example.rezeptebuchbaerbel.Rezepte.VorspeiseRezepte;
 import com.example.rezeptebuchbaerbel.entity.Rezepte;
 import com.example.rezeptebuchbaerbel.entity.RezepteArray;
 import com.example.rezeptebuchbaerbel.entity.Zutaten;
-import com.example.rezeptebuchbaerbel.listviewAdapter.ListViewAdapterRoomÜbersicht;
+import com.example.rezeptebuchbaerbel.listviewAdapter.ListViewAdapterRoomUebersicht;
 import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.roomAlt.Rezepteingabe;
-import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomUebersicht;
 import com.example.rezeptebuchbaerbel.dao.KategorienDAO;
 import com.example.rezeptebuchbaerbel.dao.RezepteDAO;
 import com.example.rezeptebuchbaerbel.dao.ZutatenDAO;
@@ -53,8 +54,8 @@ public class  UebersichtFragment extends Fragment {
     ListView listView;
     Resources resources;
 
-    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
-    ListViewAdapterRoomÜbersicht listViewAdapterRoomÜbersicht;
+    ArrayList<RoomUebersicht> listUebersicht = new ArrayList<RoomUebersicht>();
+    ListViewAdapterRoomUebersicht listViewAdapterRoomUebersicht;
 
     DatabaseClass databaseClass;
     List<KategorieWithRezepte> kategorieWithRezepteList;
@@ -79,10 +80,10 @@ public class  UebersichtFragment extends Fragment {
 
         resources = getResources();
 
-        listÜbersicht = new Rezepteingabe().RezepteingabevonHand();
+        listUebersicht = new Rezepteingabe().RezepteingabevonHand();
 loadRoom();
-        listViewAdapterRoomÜbersicht = new ListViewAdapterRoomÜbersicht(getActivity(),listÜbersicht);
-        listView.setAdapter(listViewAdapterRoomÜbersicht);
+        listViewAdapterRoomUebersicht = new ListViewAdapterRoomUebersicht(getActivity(),listUebersicht);
+        listView.setAdapter(listViewAdapterRoomUebersicht);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -158,6 +159,7 @@ activity.setTitle("Kategorien");
         kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_vorspeise,"Vorspeise"));
         kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_smoothies,"Smoothie´s"));
         kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_cocktails,"Cocktail´s"));
+        kategoriens.add(kategoriens.size(), new Kategorien(R.drawable.icon_backen,"Brot"));
 
         kategorienDAO.insertAllKategorien(kategoriens);
         kategorieWithRezepteList = kategorienDAO.getKategorieWithRezeptens();
@@ -174,6 +176,7 @@ activity.setTitle("Kategorien");
         ArrayList<RezepteArray> rezepteArrayListVorspeise = new ArrayList<>();
         ArrayList<RezepteArray> rezepteArrayListSmoothies = new ArrayList<>();
         ArrayList<RezepteArray> rezepteArrayListCocktails = new ArrayList<>();
+        ArrayList<RezepteArray> rezepteArrayListBrot = new ArrayList<>();
 
         rezepteArrayListHauptgerichte = new HauptgerichteRezepte().Hauptgerichte();
         rezepteArrayListSalate = new SalateRezepte().Salate();
@@ -187,6 +190,7 @@ activity.setTitle("Kategorien");
         rezepteArrayListVorspeise = new VorspeiseRezepte().Vorspeise();
         rezepteArrayListSmoothies = new SmoothieRezepte().Smoothie();
         rezepteArrayListCocktails = new CocktailRezepte().Cocktail();
+        rezepteArrayListBrot = new BrotRezepte().BrotRezepte();
 
         ArrayList<ArrayList<RezepteArray>> rezepte = new ArrayList<>();
         rezepte.add(rezepte.size(),rezepteArrayListHauptgerichte);
@@ -201,6 +205,7 @@ activity.setTitle("Kategorien");
         rezepte.add(rezepte.size(),rezepteArrayListVorspeise);
         rezepte.add(rezepte.size(),rezepteArrayListSmoothies);
         rezepte.add(rezepte.size(),rezepteArrayListCocktails);
+        rezepte.add(rezepte.size(),rezepteArrayListBrot);
 
         int z = 0;
         for (int x = 0 ; x < kategorieWithRezepteList.size() ; x++){

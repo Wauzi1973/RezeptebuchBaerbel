@@ -10,30 +10,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rezeptebuchbaerbel.R;
-import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomUebersicht;
 
 import java.util.ArrayList;
 
-public class ListViewAdapterRoomÜbersicht extends BaseAdapter{
+public class ListViewAdapterRoomUebersicht extends BaseAdapter{
 
     Context context;
-    ArrayList<RoomÜbersicht> listÜbersicht;
+    ArrayList<RoomUebersicht> listUebersicht;
     LayoutInflater inflater;
     int anzahlRezepte;
     String txtViewText;
 
 
-    public ListViewAdapterRoomÜbersicht(Context context, ArrayList<RoomÜbersicht> listÜbersicht){
+    public ListViewAdapterRoomUebersicht(Context context, ArrayList<RoomUebersicht> listUebersicht){
 
         super();
         this.context = context;
-        this.listÜbersicht = listÜbersicht;
+        this.listUebersicht = listUebersicht;
         inflater = (LayoutInflater.from(context));
     }
 
 //    @Override
     public int getCount() {
-        return listÜbersicht.size();
+        return listUebersicht.size();
     }
 
 //    @Override
@@ -65,7 +65,7 @@ public class ListViewAdapterRoomÜbersicht extends BaseAdapter{
             convertView.setBackgroundColor(Color.argb(100,200,150,200));
         }
 
-        anzahlRezepte = listÜbersicht.get(position).roomRezeptes.size();
+        anzahlRezepte = listUebersicht.get(position).roomRezeptes.size();
 
         txtViewText = String.valueOf(anzahlRezepte)+" Rezepte";
 
@@ -75,8 +75,8 @@ public class ListViewAdapterRoomÜbersicht extends BaseAdapter{
         holder.txtViewZusatz = convertView.findViewById(R.id.textViewZusatz);
         convertView.setTag(holder);
 
-        holder.bild.setImageResource(listÜbersicht.get(position).bildname);
-        holder.txtViewÜbersicht.setText(listÜbersicht.get(position).nameÜbersicht);
+        holder.bild.setImageResource(listUebersicht.get(position).bildname);
+        holder.txtViewÜbersicht.setText(listUebersicht.get(position).nameUebersicht);
         holder.txtViewZusatz.setText(txtViewText);
 
 

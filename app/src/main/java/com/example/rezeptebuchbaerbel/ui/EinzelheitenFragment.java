@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.roomAlt.Rezepteingabe;
-import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomUebersicht;
 import com.example.rezeptebuchbaerbel.dao.KategorienDAO;
 import com.example.rezeptebuchbaerbel.database.DatabaseClass;
 import com.example.rezeptebuchbaerbel.embedded.KategorieWithRezepte;
@@ -33,7 +33,7 @@ public class EinzelheitenFragment extends Fragment {
     String ueberschriftText, zutatenText, anweisungText, sonstigesText;
     Resources resources;
 
-    ArrayList<RoomÜbersicht> listUebersicht = new ArrayList<RoomÜbersicht>();
+    ArrayList<RoomUebersicht> listUebersicht = new ArrayList<RoomUebersicht>();
     Bundle bundle;
 
     int uebersichtPosition, rezeptPosition, intBild;

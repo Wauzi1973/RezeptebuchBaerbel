@@ -17,20 +17,20 @@ import com.example.rezeptebuchbaerbel.listviewAdapter.ListViewAdapterRoomRezepte
 import com.example.rezeptebuchbaerbel.MainActivity;
 import com.example.rezeptebuchbaerbel.R;
 import com.example.rezeptebuchbaerbel.roomAlt.Rezepteingabe;
-import com.example.rezeptebuchbaerbel.roomAlt.RoomÜbersicht;
+import com.example.rezeptebuchbaerbel.roomAlt.RoomUebersicht;
 import java.util.ArrayList;
 
 public class RezepteFragment extends Fragment {
 View view;
 Activity activity;
 ListView listView;
-TextView überschrift;
-String überschriftText;
+TextView ueberschrift;
+String ueberschriftText;
 Bundle bundle;
-int übersichtPosition;
+int uebersichtPosition;
 Resources resources;
 
-    ArrayList<RoomÜbersicht> listÜbersicht = new ArrayList<RoomÜbersicht>();
+    ArrayList<RoomUebersicht> listUebersicht = new ArrayList<RoomUebersicht>();
     ListViewAdapterRoomRezepte listViewAdapterRoomRezepte;
 
     @Nullable
@@ -39,15 +39,15 @@ Resources resources;
         view = inflater.inflate(R.layout.fragment_rezepte, container, false);
         listView = view.findViewById(R.id.listview_rezepte);
         activity = this.getActivity();
-        überschrift = view.findViewById(R.id.listview_ueberschrift);
+        ueberschrift = view.findViewById(R.id.listview_ueberschrift);
         resources = getResources();
 
         bundle = this.getArguments();
-        übersichtPosition = bundle.getInt("übersichtPosition",0);
+        uebersichtPosition = bundle.getInt("übersichtPosition",0);
 
-        listÜbersicht = new Rezepteingabe().RezepteingabevonHand();
+        listUebersicht = new Rezepteingabe().RezepteingabevonHand();
 
-        listViewAdapterRoomRezepte = new ListViewAdapterRoomRezepte(übersichtPosition,getActivity(),listÜbersicht);
+        listViewAdapterRoomRezepte = new ListViewAdapterRoomRezepte(uebersichtPosition,getActivity(),listUebersicht);
         listView.setAdapter(listViewAdapterRoomRezepte);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,9 +58,9 @@ Resources resources;
             }
         });
 
-        überschriftText = listÜbersicht.get(übersichtPosition).nameÜbersicht;
-        überschrift.setText(überschriftText);
-        überschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarRezepte,null));
+        ueberschriftText = listUebersicht.get(uebersichtPosition).nameUebersicht;
+        ueberschrift.setText(ueberschriftText);
+        ueberschrift.setBackgroundColor(resources.getColor(R.color.colorToolbarRezepte,null));
         activity.setTitle("Rezepte");
 
         ((MainActivity) getActivity()).setToolbar(view.getId());
@@ -79,7 +79,7 @@ Resources resources;
     public void onClickFragment(int position) {
         Fragment fragment = new EinzelheitenFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt("übersichtPosition",übersichtPosition);
+        bundle.putInt("übersichtPosition",uebersichtPosition);
         bundle.putInt("rezeptPosition",position);
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getParentFragmentManager();
